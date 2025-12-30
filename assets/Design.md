@@ -67,3 +67,7 @@ It **does not** contain any details regarding visual designs yet.
  **Contributor:** Omdeep Masram
  **Design Link:** https://www.figma.com/design/fqaRKKB9JuYHxFqjn04uHf/Untitled?node-id=0-1&t=AWOHdXknzkvxDJPv-1
  **Notes:** simple design for login and register screen NO AIs USED!
+
+ **Contributor:** Sanchita Agte
+ **Design Link:** https://www.figma.com/design/hkttHtqGNK3SHknPOnfPck/Untitled?node-id=0-1&t=0yj5slRxGifJy0cS-1 
+ **Notes:** login and register screens, placeholder for name of app
