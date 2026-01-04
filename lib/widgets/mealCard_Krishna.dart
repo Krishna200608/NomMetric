@@ -5,112 +5,103 @@ class MealCardKrishna extends StatelessWidget {
   final String mealTime;
   final IconData icon;
   final String calories;
+
   const MealCardKrishna({
     super.key,
     required this.mealName,
     required this.mealTime,
-    this.icon = Icons.fastfood,
-    this.calories = "🔥 Hot",
+    required this.icon,
+    required this.calories,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-
+      // card container
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(14),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.15), // Soft, subtle shadow
-            spreadRadius: 2,
-            blurRadius: 10,
-            offset: const Offset(0, 4), // Shadow pushed down slightly
+            color: Colors.black.withOpacity(0.04),
+            blurRadius: 12,
+            offset: const Offset(0, 6),
           ),
         ],
-        border: Border.all(color: Colors.grey.withOpacity(0.1)),
       ),
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Row(
-          children: [
-            // --- 1. The Icon Box ---
-            Container(
-              padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [Colors.orange.shade400, Colors.deepOrange.shade600],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ),
-                borderRadius: BorderRadius.circular(16),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.orange.withOpacity(0.4),
-                    blurRadius: 8,
-                    offset: const Offset(0, 4),
-                  ),
-                ],
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+      child: Row(
+        children: [
+          // gradient icon box
+          Container(
+            width: 64,
+            height: 64,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              gradient: const LinearGradient(
+                colors: [Color(0xFFFFA726), Color(0xFFFF7043)],
               ),
-              child: Icon(icon, color: Colors.white, size: 28),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.orange.withOpacity(0.12),
+                  blurRadius: 12,
+                  offset: const Offset(0, 6),
+                ),
+              ],
             ),
+            child: Icon(icon, color: Colors.white, size: 28),
+          ),
+          const SizedBox(width: 14),
 
-            const SizedBox(width: 20),
-            // --- 2. The Text Info ---
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    mealName,
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFF2D3142),
-                    ),
+          // Title + time
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  mealName,
+                  style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
                   ),
-                  const SizedBox(height: 6),
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.access_time_rounded,
-                        size: 14,
-                        color: Colors.grey[500],
-                      ),
-                      const SizedBox(width: 4),
-                      Text(
+                ),
+                const SizedBox(height: 8),
+                Row(
+                  children: [
+                    const Icon(Icons.schedule, size: 14, color: Colors.grey),
+                    const SizedBox(width: 6),
+                    Flexible(
+                      child: Text(
                         mealTime,
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.grey[600],
-                          fontWeight: FontWeight.w500,
+                        style: const TextStyle(
+                          color: Colors.grey,
+                          fontSize: 13,
                         ),
                       ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-
-            // --- 3. A Small "Status" Badge ---
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-              decoration: BoxDecoration(
-                color: Colors.orange.shade50,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Text(
-                calories,
-                style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.orange.shade800,
+                    ),
+                  ],
                 ),
+              ],
+            ),
+          ),
+
+          // Badge (right aligned)
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+            decoration: BoxDecoration(
+              color: const Color(0xFFFFF4EA),
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Text(
+              calories,
+              style: const TextStyle(
+                color: Color(0xFFFF8A3D),
+                fontWeight: FontWeight.w700,
+                fontSize: 12,
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
